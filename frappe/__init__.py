@@ -34,7 +34,7 @@ if PY2:
 	reload(sys)
 	sys.setdefaultencoding("utf-8")
 
-__version__ = '14.0.0-dev'
+__version__ = '13.2.2'
 
 __title__ = "Frappe Framework"
 

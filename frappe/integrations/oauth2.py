@@ -141,10 +141,8 @@ def get_token(*args, **kwargs):
 		)
 		body = frappe._dict(json.loads(body))
 
-		if body.error:
-			frappe.local.response = body
-			frappe.local.response["http_status_code"] = 400
-			return
+			id_token_encoded = jwt.encode(id_token, client_secret, algorithm='HS256', headers=id_token_header)
+			out.update({"id_token": frappe.safe_decode(id_token_encoded)})
 
 		frappe.local.response = body
 		return
