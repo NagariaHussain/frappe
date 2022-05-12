@@ -235,7 +235,9 @@ $.extend(frappe.datetime, {
 	},
 
 	get_first_day_of_the_week_index() {
-		const first_day_of_the_week = frappe.sys_defaults.first_day_of_the_week || "Sunday";
+		const first_day_of_the_week = (
+			frappe.sys_defaults && frappe.sys_defaults.first_day_of_the_week
+		) || "Sunday";
 		return moment.weekdays().indexOf(first_day_of_the_week);
 	}
 
